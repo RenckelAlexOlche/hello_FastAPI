@@ -4,7 +4,7 @@ properties([disableConcurrentBuilds()])
 
 pipeline {
     agent{
-        label 'master'
+        label 'docker-slave'
         }   
     options {
         buildDiscarder(logRotator(numToKeepStr:'4', artifactNumToKeepStr:'4'))
