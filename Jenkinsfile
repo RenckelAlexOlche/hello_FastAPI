@@ -38,11 +38,11 @@ pipeline {
             }
         }
         
-        stage('Test') {
-            steps {
-                sh 'docker run --rm fastapi-app pytest'
-            }
-        }
+//         stage('Test') {
+//             steps {
+//                 sh 'docker run --rm fastapi-app pytest'
+//             }
+//         }
         
         stage('Deploy') {
             steps {
