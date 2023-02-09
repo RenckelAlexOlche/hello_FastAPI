@@ -23,13 +23,18 @@
 // }
 
 pipeline {
-    agent{
-        label 'docker-slave'
+//     agent{
+//         label 'docker-slave'
+//         }
+    agent {
+        docker {
+            image 'jenkins/slave:latest'
         }
-    options {
-    buildDiscarder(logRotator(numToKeepStr:'2', artifactNumToKeepStr:'2'))
-    timestamps()
     }
+//     options {
+//     buildDiscarder(logRotator(numToKeepStr:'2', artifactNumToKeepStr:'2'))
+//     timestamps()
+//     }
     
     stages {
         stage('Build') {
@@ -44,12 +49,12 @@ pipeline {
 //             }
 //         }
         
-        stage('Deploy') {
-            steps {
-                sh 'docker stop fastapi-app || true'
-                sh 'docker rm fastapi-app || true'
-                sh 'docker run -d --name fastapi-app -p 80:80 fastapi-app'
-            }
-        }
+//         stage('Deploy') {
+//             steps {
+//                 sh 'docker stop fastapi-app || true'
+//                 sh 'docker rm fastapi-app || true'
+//                 sh 'docker run -d --name fastapi-app -p 80:80 fastapi-app'
+//             }
+//         }
     }
 }
