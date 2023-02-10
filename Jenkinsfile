@@ -50,8 +50,11 @@ pipeline {
            
     stages {
         stage('Push image to docker hub') {
-            steps {
-//                 sh 'docker tag fastapi-app .'
+            steps {            
+                sh 'docker tag fastapi-app:latest renckel/hello-fastapi:latest'
+                sh 'echo $DOCKERHUB_PSW | docker login -u $DOCKERHUB_USR --password-stdin'
+                
+                sh 'docker push renckel/hello-fastapi:latest'
             }
         }
            
