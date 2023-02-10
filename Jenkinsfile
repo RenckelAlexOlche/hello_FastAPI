@@ -23,7 +23,11 @@
 // }
 
 pipeline {
-       agent any
+    agent any
+       
+    environment {
+        DOCKERHUB=credentials('dockerhub')
+    }
 //     agent{
 //         label 'docker-slave'
 //         }
@@ -38,11 +42,19 @@ pipeline {
 //     }
     
     stages {
-        stage('Build') {
+        stage('Build image') {
             steps {
                 sh 'docker build -t fastapi-app .'
             }
         }
+           
+    stages {
+        stage('Push image to docker hub') {
+            steps {
+//                 sh 'docker tag fastapi-app .'
+            }
+        }
+           
         
 //         stage('Test') {
 //             steps {
