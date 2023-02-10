@@ -23,14 +23,15 @@
 // }
 
 pipeline {
+       agent any
 //     agent{
 //         label 'docker-slave'
 //         }
-    agent {
-        docker {
-            image 'jenkins/slave'
-        }
-    }
+//     agent {
+//         docker {
+//             image 'jenkins/slave'
+//         }
+//     }
 //     options {
 //     buildDiscarder(logRotator(numToKeepStr:'2', artifactNumToKeepStr:'2'))
 //     timestamps()
