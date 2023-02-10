@@ -47,8 +47,7 @@ pipeline {
                 sh 'docker build -t fastapi-app .'
             }
         }
-           
-    stages {
+        
         stage('Push image to docker hub') {
             steps {            
                 sh 'docker tag fastapi-app:latest renckel/hello-fastapi:latest'
@@ -57,6 +56,7 @@ pipeline {
                 sh 'docker push renckel/hello-fastapi:latest'
             }
         }
+
            
         
 //         stage('Test') {
