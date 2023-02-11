@@ -56,6 +56,12 @@ pipeline {
                 sh 'docker push renckel/hello-fastapi:latest'
             }
         }
+        
+        stage('Ansible pull image') {
+            steps {
+                ansiblePlaybook credentialsId: 'deploy-server', disableHostKeyChecking: true, installation: 'Ansible', inventory: '/etc/ansible/hosts', playbook: 'pullFastApi.yml'
+            }
+        }
 
            
         
