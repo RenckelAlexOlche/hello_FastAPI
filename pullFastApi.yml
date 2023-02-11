@@ -5,6 +5,6 @@
     - name: install fastapi image
       command: sudo docker pull renckel/hello-fastapi:latest
     - name: run fastapi container
-      command: docker kill $(docker ps -q)
-      command: docker rm $(docker ps -a -q)
+      command: sudo docker kill $(sudo docker ps -q)
+      command: sudo docker rm $(sudo docker ps -a -q)
       command: sudo docker run --name target-project -p 80:80 -d renckel/hello-fastapi
