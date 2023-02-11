@@ -3,15 +3,5 @@
   become: true
   tasks:
     - name: install fastapi image and run it
-      command: 
-       - sh
-       - "-c"
-       - |
-         /bin/bash <<EOF
-
-         sudo docker pull renckel/hello-fastapi:latest
-         sudo docker stop $(sudo docker ps -q)
-         sudo docker rm $(sudo docker ps -a -q)
-         sudo docker run --name target-project -p 80:80 -d renckel/hello-fastapi
-
-         EOF
+      command: ["/bin/sh"]
+      args: ["-c", "sudo docker pull renckel/hello-fastapi:latest; sudo docker stop $(sudo docker ps -q); sudo docker rm $(sudo docker ps -a -q); sudo docker run --name target-project -p 80:80 -d renckel/hello-fastapi"]
