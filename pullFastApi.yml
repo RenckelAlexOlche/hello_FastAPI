@@ -3,13 +3,13 @@
   become: true
   tasks:
     - name: install fastapi image
-      command: sudo docker pull renckel/hello-fastapi:latest
+      shell: sudo docker pull renckel/hello-fastapi:latest
 
     - name: stop all containers
-      command: sudo docker stop $(sudo docker ps -q)
+      shell: sudo docker stop $(sudo docker ps -q)
 
     - name: remove all containers
-      command: sudo docker rm $(sudo docker ps -a -q)
+      shell: sudo docker rm $(sudo docker ps -a -q)
 
     - name: run fastapi container
-      command: sudo docker run --name target-project -p 80:80 -d renckel/hello-fastapi
+      shell: sudo docker run --name target-project -p 80:80 -d renckel/hello-fastapi
