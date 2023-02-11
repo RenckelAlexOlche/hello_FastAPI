@@ -1,0 +1,8 @@
+---
+- hosts: webserver
+  become: true
+  tasks:
+    - name: install fastapi image
+      command: sudo docker pull renckel/hello-fastapi:latest
+    - name: run fastapi container
+      command: sudo docker run -p 80:80 fastapi-app
