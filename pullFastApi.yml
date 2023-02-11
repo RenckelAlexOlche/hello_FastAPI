@@ -5,7 +5,7 @@
     - name: install fastapi image
       command: sudo docker pull renckel/hello-fastapi:latest
     - name: stop all containers
-      command: sudo docker kill $(sudo docker ps -q)
+      command: sudo docker stop $(sudo docker ps -q)
     - name: remove all containers
       command: sudo docker rm $(sudo docker ps -a -q)
     - name: run fastapi container
