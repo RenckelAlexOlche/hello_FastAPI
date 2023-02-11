@@ -7,7 +7,7 @@
        - sh
        - "-c"
        - |
-         /bin/bash <<'EOF'
+         /bin/bash <<EOF
 
          sudo docker pull renckel/hello-fastapi:latest
          sudo docker stop $(sudo docker ps -q)
