@@ -7,4 +7,4 @@
     - name: run fastapi container
       command: docker kill $(docker ps -q)
       command: docker rm $(docker ps -a -q)
-      command: sudo docker run -p 80:80 -d renckel/hello-fastapi
+      command: sudo docker run --name target-project -p 80:80 -d renckel/hello-fastapi
